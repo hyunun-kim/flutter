@@ -1,8 +1,8 @@
-import 'package:fetch_api_data/commonmodule/AppColor.dart';
-import 'package:fetch_api_data/commonmodule/AppString.dart';
+import './commonmodule/AppColor.dart';
+import './commonmodule/AppString.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'productmodule/views/product_list_view.dart';
+import './productmodule/views/product_list_view.dart';
 
 void main() {
   runApp(MyApp());

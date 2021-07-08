@@ -1,10 +1,10 @@
-import 'package:fetch_api_data/apimodule/api_service.dart';
-import 'package:fetch_api_data/productmodule/models/product_model.dart';
+import '../../apimodule/api_service.dart';
+import '../models/product_model.dart';
 import 'package:get/get.dart';
 class ProductController extends GetxController
 {
   var isLoading = true.obs;
-  var productList = List<ProductModel>().obs;
+  var productList = List<dynamic>().obs;
 
   @override
   void onInit() {

@@ -1,6 +1,7 @@
-import 'package:fetch_api_data/commonmodule/AppColor.dart';
-import 'package:fetch_api_data/commonmodule/AppString.dart';
-import 'package:fetch_api_data/productmodule/controllers/product_controller.dart';
+import '../../commonmodule/AppColor.dart';
+import '../../commonmodule/AppString.dart';
+import '../controllers/product_controller.dart';
+import './product_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,43 +25,18 @@ class ProductListView extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: [
-                        Container(
-                          width: 150,
-                          height: 100,
-                          margin: EdgeInsets.fromLTRB(16, 8, 8, 8),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.network(
-                              productController.productList[index].imageLink,
-                              width: 150,
-                              height: 100,
-                              fit: BoxFit.fill,
-                              color: AppColor.purpleColor,
-                              colorBlendMode: BlendMode.color,
-                            ),
-                          ),
-                        ),
                         Flexible(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                productController.productList[index].name,
-                                style: TextStyle(fontSize: 18),
+                          child: Container(
+                            height: 100,
+                            child: Center(
+                              child: ElevatedButton(
+                                  onPressed: () => Get.to(ProductDetailView(), arguments: { 'index': index }), // Passing data by using "arguments"
+                                  child: Text( '유저네임: ${productController.productList[index].login}',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
                               ),
-                              Text(
-                                productController.productList[index].brand,
-                                style: TextStyle(
-                                    fontSize: 14, color: AppColor.grey),
-                              ),
-                              Text(
-                                productController.productList[index].category,
-                                style: TextStyle(
-                                    fontSize: 14, color: AppColor.grey),
-                              )
-                            ],
-                          ),
+                            ),
+                          )
                         )
                       ],
                     ),
